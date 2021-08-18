@@ -1,13 +1,26 @@
-DROP table IF EXISTS trabajador;
+DROP TABLE IF EXISTS ARTICULOS;
+DROP TABLE IF EXISTS FABRICANTES;
 
-create table trabajador(
-	id int auto_increment,
-	nombre varchar(250),
-	trabajo varchar(250)
+CREATE TABLE FABRICANTES (
+Codigo INT AUTO_INCREMENT PRIMARY KEY,
+Nombre VARCHAR(100));
+
+CREATE TABLE ARTICULOS (
+Codigo INT AUTO_INCREMENT PRIMARY KEY,
+Nombre VARCHAR(100),
+Precio INT(20),
+CodigoFabricante INT,
+FOREIGN KEY (CodigoFabricante) REFERENCES FABRICANTES (Codigo) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-insert into trabajador(nombre, trabajo)values('Pepe','peon');
-insert into trabajador(nombre, trabajo)values('Miquel','peon');
-insert into trabajador(nombre, trabajo)values('Alba','paleta');
-insert into trabajador(nombre, trabajo)values('Carla','capataz');
-insert into trabajador(nombre, trabajo)values('Pepa','peon');
+INSERT INTO FABRICANTES (Nombre) VALUES ('Fabricante Sergio');
+INSERT INTO FABRICANTES (Nombre) VALUES ('Fabricante Javier');
+INSERT INTO FABRICANTES (Nombre) VALUES ('Fabricante Matías');
+INSERT INTO FABRICANTES (Nombre) VALUES ('Fabricante Laura');
+INSERT INTO FABRICANTES (Nombre) VALUES ('Fabricante Tatiana');
+
+INSERT INTO ARTICULOS (Nombre, Precio, CodigoFabricante) VALUES ('Articulo1', 20, 1);
+INSERT INTO ARTICULOS (Nombre, Precio, CodigoFabricante)  VALUES ('Articulo2', 20, 2);
+INSERT INTO ARTICULOS (Nombre, Precio, CodigoFabricante)  VALUES ('Articulo3', 20, 3);
+INSERT INTO ARTICULOS (Nombre, Precio, CodigoFabricante)  VALUES ('Articulo4', 20, 4);
+INSERT INTO ARTICULOS (Nombre, Precio, CodigoFabricante)  VALUES ('Articulo5', 20, 5);
